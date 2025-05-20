@@ -1,6 +1,6 @@
 const { v4: uuidv4 } = require('uuid');
 
-module.exports = function transform(data) {
+function transform(data) {
   return {
     id: uuidv4(),
     userId: data.userId.trim().toLowerCase(),
@@ -10,4 +10,6 @@ module.exports = function transform(data) {
     sourceData: data.additionalData || {},
     processingTimestamp: new Date().toISOString()
   };
-};
+}
+
+module.exports = transform;
